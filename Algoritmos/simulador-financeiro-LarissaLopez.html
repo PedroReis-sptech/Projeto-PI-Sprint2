@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Flow</title>
+</head>
+
+<body>
+
+<h2>Calculadora Flow</h2>
+
+Faturamento mensal da sua loja atualmente (R$):<br>
+<input type="text" id="input_faturamento"><br><br>
+
+Percentual das vendas do setor analisado em relação ao faturamento mensal (%):<br>
+<input type="text" id="input_setor"><br><br>
+
+<button onclick="calcular()">Calcular oportunidade</button>
+
+<br><br>
+<div id="resultado"></div>
+
+<script>
+
+function calcular(){
+
+let faturamento = Number(input_faturamento.value)
+let setor = Number(input_setor.value) / 100
+
+// estimativa baseada em estudos de trade marketing
+let melhoria = 0.10
+
+let vendasSetor = faturamento * setor
+
+let aumento = vendasSetor * melhoria
+let novoFaturamentoSetor = vendasSetor + aumento
+
+
+let ganho = novoFaturamentoSetor - vendasSetor
+
+resultado.innerHTML = `
+Faturamento atual do setor: <b>R$ ${vendasSetor.toFixed(2)}</b><br><br>
+
+Com melhor posicionamento de produtos baseado em análise de fluxo de clientes:<br>
+
+Novo faturamento estimado do setor: <b>R$ ${novoFaturamentoSetor.toFixed(2)}</b><br><br>
+
+Possível aumento mensal: <b style="color:green">R$ ${ganho.toFixed(2)}</b><br><br>
+
+<hr>
+
+<p style="color: red;">
+<b>Para esta simulação foi considerado um aumento conservador de 10%.</b><br>
+Estimativa baseada em práticas de Trade Marketing que indicam que melhorias em 
+exposição de produtos e layout de loja podem aumentar vendas entre 5% e 15%. 
+<br><br>
+
+Fonte:<br>
+BLESSA, Regina. <i>Merchandising no Ponto de Venda</i>. Editora Atlas.<br>
+KOTLER, Philip; KELLER, Kevin. <i>Administração de Marketing</i>.
+</p>
+`
+
+}
+</script>
+
+</body>
+</html>
