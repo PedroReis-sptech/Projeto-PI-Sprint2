@@ -31,6 +31,8 @@
 
         <button onclick="calcularROI()">Calcular Oportunidade Oculta</button>
 
+
+
     </div>
 
 </body>
@@ -63,6 +65,12 @@
         let vendasRecuperadasComFlow = faturamentoPorCorredor * corredoresFrios;
         let vendasRecuperadasPorAno = vendasRecuperadasComFlow * 12;
 
+        let valorFlow = 7000;
+        let roi = (vendasRecuperadasPorAno - valorFlow) / valorFlow * 100;
+        let payback = valorFlow / (vendasRecuperadasComFlow / 30)
+
+        
+        
 
     }
 
